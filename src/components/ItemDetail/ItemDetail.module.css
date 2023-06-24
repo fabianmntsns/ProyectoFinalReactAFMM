@@ -1,0 +1,19 @@
+.CardItem{
+    background-color: rgb(123, 156, 119);
+    margin: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 20px;
+
+}
+
+
+.ItemImg{
+    width: 18rem;
+    border-radius: 20px;
+}
+
+.ItemHeader{
+    font-size: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

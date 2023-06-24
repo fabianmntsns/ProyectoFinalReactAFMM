@@ -1,0 +1,39 @@
+.contenedor{
+    background-color: rgb(147, 206, 186);
+}
+.contenedor nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.titulo{
+    font-family: 'Wix Madefor Display', sans-serif;
+}
+
+
+
+.botonesBox{
+    display: flex;
+    align-items: center;
+}
+
+#botones {
+    padding: 0.5rem;
+    margin: 0 0.5rem 0 0.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    background-color: cornsilk;
+    list-style: none;
+}
+
+#botones:hover{
+    background-color: cornsilk;
+}
+
+.img {
+    width: 12rem;
+    cursor: pointer;
+}

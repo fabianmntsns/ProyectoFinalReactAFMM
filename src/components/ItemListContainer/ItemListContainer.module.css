@@ -1,0 +1,5 @@
+.boxGreeting{
+    background-color: rgb(22, 157, 161);
+    display: flex;
+    justify-content: center;
+}

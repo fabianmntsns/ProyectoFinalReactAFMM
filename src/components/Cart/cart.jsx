@@ -4,7 +4,7 @@ import { useCart } from "../../context/CartContext"
 
 
 const Cart = () => {
-    const { cart, clearCart, totalQuantity, total } = useCart()
+    const { cart, totalQuantity, totalToPay } = useCart()
 
     if(totalQuantity === 0) {
         return(
@@ -18,7 +18,7 @@ const Cart = () => {
     return(
         <div>
             { cart.map (prod => <CartItem key={prod.id}{...prod}/> ) } 
-            <h3>Total: ${total}</h3>
+            <h3>Total: ${totalToPay}</h3>
 
             <Link to='/checkout' className="Option"> Ir al pago</Link>
         </div>

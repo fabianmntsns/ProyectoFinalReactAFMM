@@ -1,5 +1,5 @@
 
-const CartItem = ({ id, name, quantity, price }) => {
+const CartItem = ({ name, quantity, price }) => {
     
 
     return (
@@ -11,6 +11,7 @@ const CartItem = ({ id, name, quantity, price }) => {
             <br/>
             Precio x Unidad: $ {price}
             <br/>
+            <button onClick='Button'>Eliminar producto</button>
         </div>
     )
 

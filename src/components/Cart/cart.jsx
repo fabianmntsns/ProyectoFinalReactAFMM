@@ -3,8 +3,9 @@ import CartItem from "../CartItem/CartItem"
 import { useCart } from "../../context/CartContext"
 
 
+
 const Cart = () => {
-    const { cart, totalQuantity, totalToPay } = useCart()
+    const { cart, totalQuantity, totalToPay, clearCart } = useCart()
 
     if(totalQuantity === 0) {
         return(
@@ -19,7 +20,7 @@ const Cart = () => {
         <div>
             { cart.map (prod => <CartItem key={prod.id}{...prod}/> ) } 
             <h3>Total: ${totalToPay}</h3>
-
+            <button onClick={clearCart}> Vaciar carrito </button>
             <Link to='/checkout' className="Option"> Ir al pago</Link>
         </div>
     )

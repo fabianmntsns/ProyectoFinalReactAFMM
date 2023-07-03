@@ -1,9 +1,22 @@
+import { useCart } from "../../context/CartContext"
 
-const CartItem = ({ name, quantity, price }) => {
+const CartItem = ({ id, name, quantity, price, stock }) => {
+
+    const { updateQuantityItem } = useCart()
+
+    const handleRemove = (e) => {
+        e.stopPropagation()
+        updateQuantityItem(id, -1)
+    }
+
+    const handleAdd = (e) => {
+        e.stopPropagation()
+        updateQuantityItem(id, +1)
+    }
     
 
     return (
-        <div>
+        <>{(quantity != 0 ) ? <div>
             <br/>
             {name}
             <br/>
@@ -11,8 +24,9 @@ const CartItem = ({ name, quantity, price }) => {
             <br/>
             Precio x Unidad: $ {price}
             <br/>
-            <button onClick='Button'>Eliminar producto</button>
-        </div>
+            <button onClick={handleRemove}>-</button>
+            {(quantity < stock) ? <button onClick={handleAdd}>+</button> : <></>}
+        </div> : <></>} </>
     )
 
 }

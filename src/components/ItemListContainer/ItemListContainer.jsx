@@ -8,12 +8,13 @@ import { useParams } from 'react-router-dom'
 
 const ItemListContainer = ({greeting}) => {
     const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const { categoryId } = useParams()
 
     useEffect(() => {
         const asyncFunc = categoryId ? getProductsByCategory : getProducts
-
+        setLoading(true)
         asyncFunc(categoryId)
         .then(response => {
             setProducts(response)
@@ -21,7 +22,14 @@ const ItemListContainer = ({greeting}) => {
         .catch(error =>{
             console.error(error)
         })
+        .finally(() => {
+            setLoading(false)
+        })
 }, [categoryId])
+
+if(loading){
+    return <h1>Cargando productos.... </h1>
+}
 
     return (
         <div>

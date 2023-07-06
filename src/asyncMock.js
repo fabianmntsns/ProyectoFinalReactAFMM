@@ -1,4 +1,4 @@
-const products = [ 
+/* const products = [ 
     { id: '1', 
     name: 'Camiseta Real Madrid', 
     price: 55000, 
@@ -41,3 +41,4 @@ export const getProductsByCategory = (categoryId) => {
         }, 200);
     })
 }
+*/

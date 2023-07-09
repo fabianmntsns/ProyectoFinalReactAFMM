@@ -3,26 +3,33 @@ import CartItem from "../CartItem/CartItem"
 import { useCart } from "../../context/CartContext"
 import styles from './cart.module.css'
 
-
-
 const Cart = () => {
     const { cart, totalQuantity, totalToPay, clearCart } = useCart()
 
     if(totalQuantity === 0) {
         return(
-             <div>
-            <h1>No hay productos en el carrito</h1>
-            <Link to='/' className="Option" > Inicio </Link>
+        <div>
+            <div className={styles.noProducts}>
+                <h1>No hay productos en el carrito</h1>
+            </div>
+            <div>
+                 <Link to='/' className={styles.buttonInit} > Inicio </Link>
+            </div>
         </div>
         ) 
     }
 
     return(
+        
         <div className={styles.container}>
             { cart.map (prod => <CartItem key={prod.id}{...prod}/> ) } 
-            <h3>Total: ${totalToPay}</h3>
-            <button onClick={clearCart}> Vaciar carrito </button>
-            <Link to='/checkout' className="Option"> Ir al pago</Link>
+            <div className={styles.infoItemTotal}>
+                <h3>Total: ${totalToPay}</h3>
+            </div>
+            <div className={styles.ButtonsCart}>            
+            <button className={styles.buttonClearCart} onClick={clearCart}> Vaciar carrito </button>
+            <Link to='/checkout' className={styles.buttonCheckout}> Ir al pago</Link>
+            </div>
         </div>
     )
 }

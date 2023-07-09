@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 
 
-
-
 const ItemDetail = ({id, name, price, category, img, stock, description }) => {
     const [ quantityAdded , setQuantityAdded ] = useState(0)
 

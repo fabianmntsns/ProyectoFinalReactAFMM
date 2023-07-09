@@ -15,21 +15,28 @@ const CartItem = ({ id, name, quantity, price, stock }) => {
         updateQuantityItem(id, +1)
     }
     
-
     return (
         <>{(quantity != 0 ) ? 
         <div className={styles.container}>
-            <h1> {name}</h1>
-            <h3>Cantidad: {quantity}</h3>
-            <h4>Precio x Unidad: $ {price}</h4>
-            <h4> SubTotal: ${price * quantity} </h4>
-            <button onClick={handleRemove}>-</button>
+            <div className={styles.infoItemName}>
+                 <h1> {name}</h1>
+            </div>
+            <div className={styles.infoItem}>
+                <h3>Cantidad: {quantity}</h3>
+            </div>
+            <div className={styles.infoItem}>
+              <h4>Precio x Unidad: $ {price}</h4>  
+            </div>
+            <div className={styles.infoItem}>
+                <h4> SubTotal: ${price * quantity} </h4>
+            </div>
+            <div className={styles.infoItem}>
+                 <button onClick={handleRemove}>-</button>
             {(quantity < stock) ? <button onClick={handleAdd}>+</button> : <></>}
+            </div>
         </div> : <></> } </>
     )
 
 }
-
-
 
 export default CartItem

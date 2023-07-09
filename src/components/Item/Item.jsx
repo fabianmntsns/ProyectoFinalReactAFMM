@@ -1,9 +1,6 @@
 import styles from './Item.module.css'
 import { Link } from 'react-router-dom'
 
-
-// detalles del producto UNICOO
-
 const Item = ({id, name, img, price, stock}) => {
     return(
         <article className={styles.CardItem}>

@@ -3,8 +3,6 @@ import CartWidget from '../CartWidget/CartWidget';
 import realmadridstore from './assets/realmadridstore.svg';
 import { NavLink, useNavigate } from 'react-router-dom'
 
-
-
 const NavBar = () => {
     const navigate = useNavigate()
     return(

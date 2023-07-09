@@ -1,9 +1,7 @@
 import Item from "../Item/Item"
 import styles from './ItemList.module.css'
 
-// presentación 
-
-const ItemList = ({products}) => {  // products es un props que viene de ItemListContainer.jsx
+const ItemList = ({products}) => {  
     return(
         <div className={styles.ListGroup}>
                 {products.map(prod => <Item key={prod.id} {...prod}/>)}
@@ -11,6 +9,5 @@ const ItemList = ({products}) => {  // products es un props que viene de ItemLis
 
     )
 }
-
 
 export default ItemList 

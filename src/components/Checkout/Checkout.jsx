@@ -1,9 +1,8 @@
 import { useContext, useState } from "react"
 import CheckoutForm from "../CheckoutForm/CheckoutForm"
-import { CartContext } from "../context/CartContext"
+import { CartContext } from "../../context/CartContext"
 import { Timestamp, addDoc, collection, documentId, getDocs, query, where, writeBatch } from "firebase/firestore"
-import { db } from "../services/firebase/firebaseConfig"
-
+import { db } from "../../services/firebase/firebaseConfig"
 
 
 const Checkout = () => {
@@ -83,7 +82,7 @@ const Checkout = () => {
 
     return (
         <div>
-            <h1>Checkout</h1>
+            <h1 style={{ display: 'flex', justifyContent: 'center' }}>Checkout</h1>
             <CheckoutForm onConfirm={createOrder}/>
         </div>
     )

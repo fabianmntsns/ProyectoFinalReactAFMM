@@ -1,40 +1,20 @@
-
-import { useState, useEffect } from 'react';
-// import { getProducts, getProductsByCategory } from '../../asyncMock';
 import ItemList from '../ItemList/ItemList';
-
 import { useParams } from 'react-router-dom'
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../../services/firebase/firebaseConfig';
-
+import { useAsync } from '../../hooks/useAsync';
+import { getProducts } from '../../services/firebase/firestore/products';
 
 const ItemListContainer = ({greeting}) => {
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-
     const { categoryId } = useParams()
 
-    useEffect(() => {
-        const productsRef = !categoryId
-        ? collection(db, 'products')
-        : query(collection(db, 'products'),where('category', '==', categoryId))
-        
-        setLoading(true)
-        getDocs(productsRef)
-        .then(QuerySnapshot => {
-            const productsAdapted = QuerySnapshot.docs.map(doc=> {
-                const fields = doc.data()
-                return { id: doc.id, ...fields }
-            })
-            setProducts(productsAdapted)
-        })
-        .finally(() => {
-            setLoading(false)
-        })
-}, [categoryId])
+    const getProducsWithCategory = () => getProducts(categoryId)
+
+    const { data: products, error, loading } = useAsync( getProducsWithCategory, [categoryId])
 
 if(loading){
     return <h1>Cargando productos.... </h1>
+}
+if(error){
+    return <h1> ¡No se pudo obtener los productos!</h1>
 }
 
     return (

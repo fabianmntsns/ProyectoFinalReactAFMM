@@ -1,7 +1,24 @@
 .container {
-    background-color: bisque;
+    background-color: rgb(199, 204, 228);
     display: flex;
     justify-content:space-around;
     align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid black;
+    border-radius: 20px;
     
+}
+
+.infoItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoItem button{
+    margin: 0.5rem;
+}
+
+.infoItemName{
+    width: 30rem;
 }
